@@ -15,14 +15,14 @@ function processCharacterWealth(sCommand, sParams)
 	local nodeChar = nil;
 	local sChar = nil;
 	
-	Debug.console("Parameters = " .. sParams);
+	--Debug.console("Parameters = " .. sParams);
 	
 	local sFind = StringManager.trim(sParams);
 	if string.len(sFind) > 0 then
 		for _, vChar in pairs(DB.getChildren("charsheet")) do
 			sChar = DB.getValue(vChar, "name", "");
 			if string.len(sChar) > 0 then
-				if string.lower(sFind) == string.lower(string.sub(sChar, 1, string.len(sFind))) then
+				if string.lower(sFind) == string.lower(sChar) then
 					nodeChar = vChar;
 				end
 			end
@@ -32,19 +32,23 @@ function processCharacterWealth(sCommand, sParams)
 			ChatManager.SystemMessage("Unable to find character for calculating character wealth" .. " (" .. sParams .. ")");
 			return;
 		else
-			Debug.console("Found character: " .. sChar);
+			--Debug.console("Found character: " .. sChar);
 		end
+	else	-- No character name given --
+		ChatManager.SystemMessage("Error: No character name given\n Usage: charwealth [character name]");
+		return;
 	end
 	
 	calculateCharacterWealth(nodeChar);
 end
 
 function calculateCharacterWealth(nodeChar)
+	local sCharName = DB.getValue(nodeChar, "name", "");
 	local nodeInventoryItems = DB.getChildren(nodeChar, "inventorylist");
 	local msg = {};
 	msg.font = "systemfont";
-	msg.text = "\n";
-	Comm.addChatMessage(msg);	-- Print newline to start --
+	msg.text = "--------------------------------";
+	Comm.addChatMessage(msg);	-- Print line to start --
 	
 	if nodeInventoryItems then
 		local nRunningTotal = 0;
@@ -58,7 +62,7 @@ function calculateCharacterWealth(nodeChar)
 				
 				-- Check if string has a comma --
 				if string.match(aCostData[1], ",") then
-					Debug.console("Cost has a comma");
+					--Debug.console("Cost has a comma");
 					local aCommaCost = StringManager.split(aCostData[1], ",", true);
 					
 					for j, sToken in pairs(aCommaCost) do
@@ -108,7 +112,7 @@ function calculateCharacterWealth(nodeChar)
 				end
 			end
 		end
-		msg.text = "--------------------------------\nTotal Wealth of Character is: " .. tonumber(nRunningTotal) .. " gp";
+		msg.text = "Total Wealth of " .. sCharName .. " is: " .. nRunningTotal .. " gp\n--------------------------------";
 		Comm.addChatMessage(msg);
 	end
 

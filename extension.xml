@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root version="1.0">
+	<properties>
+		<name>PFRPG Character Wealth</name>
+		<version>1.0</version>
+		<author>Wattabout2ndBrkfst</author>
+		<description>Allows users to enter a command to calculate a specified character's wealth</description>
+		<ruleset>
+			<name>PFRPG</name>
+		</ruleset>		
+	</properties>
+
+	<base>
+		<!-- Custom script to calculate character wealth -->
+		<script name="CharacterWealth" file="scripts/character_wealth.lua" />
+	</base>
+</root>

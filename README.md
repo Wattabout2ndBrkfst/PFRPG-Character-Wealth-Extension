@@ -12,7 +12,9 @@ V1.0 - May 26, 2020
 
 ## Dependencies
 Tested and works with Fantasy Grounds Classic Client 3.3.10  
-Has not been tested on Fantasy Grounds Unity  
+Tested and works with Fantasy Grounds Unity 4.0.0
+
+## Compatibility with Other Extensions
 This extension adds a new command to use for the Host. It does not modify anything else besides this. 
 
 ## Installation
@@ -28,4 +30,5 @@ If you are not the Host, this command is unavailable to you.
 The command only takes into account the wealth of items in a character's inventory. If they have gold pieces not in their inventory, these will need to be added manually.
 
 ## License
-Please see the license.html file included with this distribution for attribution and copyright information.
+Please see the license.html file included with this distribution for attribution and copyright information.  
+This extension uses [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)

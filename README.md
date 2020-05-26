@@ -28,4 +28,4 @@ If you are not the Host, this command is unavailable to you.
 The command only takes into account the wealth of items in a character's inventory. If they have gold pieces not in their inventory, these will need to be added manually.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+Please see the license.html file included with this distribution for attribution and copyright information.

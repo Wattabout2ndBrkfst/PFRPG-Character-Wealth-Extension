@@ -5,7 +5,7 @@ Extension for Fantasy Grounds PFRPG that allows a user to enter a command to cal
 Wattabout2ndBrkfst
 
 ## Version Number
-V1.0 - May 26, 2020
+V1.0.0 - May 26, 2020
 
 ## Rulesets
 3.5e and PFRPG
@@ -18,8 +18,7 @@ Tested and works with Fantasy Grounds Unity 4.0.0
 This extension adds a new command to use for the Host. It does not modify anything else besides this. 
 
 ## Installation
-Package the downloaded repository as a ZIP file. Then rename the extension from ".zip" to ".ext"  
-Copy the extension file over to the extensions folder in Fantasy Grounds
+Under the Extension-Files folder, copy the extension file over to the extensions folder in Fantasy Grounds
 
 ## Usage
 /charwealth [character name]  

@@ -20,7 +20,7 @@
 		<loadorder>51</loadorder>
 	</properties>
 
-	<annnouncement text="PFRPG - Character Wealth v1.0\nFor Fantasy Grounds v3.3+ and the Pathfinder Rulesets\nBy Wattabout2ndBrkfst" font="emotefont"/>
+	<annnouncement text="PFRPG - Character Wealth v1.0\nFor Fantasy Grounds v3.3+ and the 3.5E and Pathfinder Rulesets\nBy Wattabout2ndBrkfst" font="emotefont"/>
 	
 	<base>
 		<!-- Custom script to calculate character wealth -->

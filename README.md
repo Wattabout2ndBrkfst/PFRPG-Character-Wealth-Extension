@@ -1,11 +1,12 @@
 # PFRPG-Character-Wealth-Extension
-Extension for Fantasy Grounds 3.5E, 5E, and PFRPG that allows a user to enter a command to calculate a single character's total wealth, all characters' total wealth, and the party's total wealth 
+Extension for Fantasy Grounds 3.5E, 5E, and PFRPG.  
+Allows a user to enter a command to calculate a single character's total wealth, all characters' total wealth, and the party's total wealth 
 
 ## Author
 Wattabout2ndBrkfst
 
 ## Version Number
-V1.0.0 - May 26, 2020 - Initial release
+V1.0.0 - May 26, 2020 - Initial release  
 v1.1.0 - August 12, 2020 - Added "-all" and "-party" support
 
 ## Rulesets

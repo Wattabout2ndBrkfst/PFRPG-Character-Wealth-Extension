@@ -12,7 +12,7 @@ v1.1.0 - August 12, 2020 - Added "-all" and "-party" support
 3.5E, 5E, and PFRPG
 
 ## Dependencies
-Tested and works with Fantasy Grounds Classic Client 3.3.10  
+Tested and works with Fantasy Grounds Classic Client 3.3.11  
 Tested and works with Fantasy Grounds Unity 4.0.0
 
 ## Compatibility with Other Extensions

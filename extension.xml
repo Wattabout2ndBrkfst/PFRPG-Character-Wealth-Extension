@@ -8,19 +8,22 @@
 <root version="3.3">
 	<properties>
 		<name>PFRPG-Character-Wealth-Extension</name>
-		<version>1.0.0</version>
+		<version>1.1.0</version>
 		<author>Wattabout2ndBrkfst</author>
-		<description>Allows users to enter a command to calculate a specified character's wealth</description>
+		<description>Allows users to enter a command to calculate a specified character's wealth, all characters' wealth, and party wealth</description>
 		<ruleset>
 			<name>3.5E</name>
 		</ruleset>
 		<ruleset>
 			<name>PFRPG</name>
 		</ruleset>
+		<ruleset>
+			<name>5E</name>
+		</ruleset>
 		<loadorder>51</loadorder>
 	</properties>
 
-	<annnouncement text="PFRPG - Character Wealth v1.0\nFor Fantasy Grounds v3.3+ and the 3.5E and Pathfinder Rulesets\nBy Wattabout2ndBrkfst" font="emotefont"/>
+	<annnouncement text="Character Wealth v1.1.0\nFor Fantasy Grounds v3.3+ and the 3.5E, 5E, and PFRPG Rulesets\nBy Wattabout2ndBrkfst" font="emotefont"/>
 	
 	<base>
 		<!-- Custom script to calculate character wealth -->

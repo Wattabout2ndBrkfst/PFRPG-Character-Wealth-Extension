@@ -3,7 +3,7 @@
 
 -- Initialization --
 function onInit()
-	if User.isHost() then
+	if Session.IsHost then
 		Comm.registerSlashHandler("charwealth", processCharacterWealth);
 	end
 	

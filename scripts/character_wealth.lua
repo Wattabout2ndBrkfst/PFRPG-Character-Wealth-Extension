@@ -8,7 +8,7 @@ function onInit()
 	end
 	
 	local msg = {sender = "", font = "emotefont"};
-	msg.text = "CharacterWealth v1.1.0 Extension for FG 3.3+ rulesets: PFRPG and 3.5e, by Wattabout2ndBrkfst";
+	msg.text = "CharacterWealth v1.1.0.2 Extension for FG 3.3+ rulesets: PFRPG and 3.5e, by Wattabout2ndBrkfst, upgraded by FeatherRin";
 	ChatManager.registerLaunchMessage(msg);
 end
 
@@ -95,15 +95,46 @@ function calculateCharacterWealth(nodeChar)
 	local nodeInventoryItems = DB.getChildren(nodeChar, "inventorylist");	-- Get inventory list --
 	local sChatMessage = nil;
 	local nRunningTotal = 0;
+	local nodeInventoryTreasure = DB.getChildren(nodeChar, "coins");
+	
+	if nodeInventoryTreasure then	-- If the inventory list is not nil --		
+		for k, nodeCoin in pairs(nodeInventoryTreasure) do	-- For every item in the inventory list --
+			local sCoinName = DB.getValue(nodeCoin, "name", ""):upper();
+			local sCoinAm = DB.getValue(nodeCoin, "amount", "");
+			
+			if sCoinName == "GP" then
+				nRunningTotal = nRunningTotal + sCoinAm;
+			elseif sCoinName == "PP" then
+				nRunningTotal = nRunningTotal + sCoinAm * 10;
+			elseif sCoinName == "SP" then
+				nRunningTotal = nRunningTotal + sCoinAm * 0.1;
+			elseif sCoinName == "CP" then
+				nRunningTotal = nRunningTotal + sCoinAm * 0.01;
+			elseif sCoinName .. " " == " " then -- Don't spam for empty cells. --
+				--Nothing
+			else -- Currency is defined, but is not a standard currency --
+				sChatMessage = "" .. sCoinName .. ": Excluded. Non-standard currency used";
+				printChatMessage(sChatMessage);
+			end
+		end
+	end
+	
 	
 	if nodeInventoryItems then	-- If the inventory list is not nil --		
 		for k, nodeItem in pairs(nodeInventoryItems) do	-- For every item in the inventory list --
 			local sItemName = DB.getValue(nodeItem, "name", "");	-- Get name of item --
 			local sItemCost = DB.getValue(nodeItem, "cost", "");	-- Get cost of item --
 			if sItemCost ~= "" then
+			
+				if string.match(sItemCost,"-") then
+					if string.len(sItemCost) > 4 then
+						sItemCost = string.sub((string.match(string.reverse(sItemCost), "(.+)%-")):reverse(), 2);
+					end
+				end
+				
 				local aCostData = StringManager.split(sItemCost, " ", true);
 				local sFormattedItemCost = "";
-				
+					
 				-- Check if string has a comma --
 				if string.match(aCostData[1], ",") then
 					--Debug.console("Cost has a comma");
@@ -119,10 +150,13 @@ function calculateCharacterWealth(nodeChar)
 				
 				local sCostUnits = aCostData[2];	-- Units of the cost --
 				
+				Debug.console(sFormattedItemCost .. "endme2");
+				
 				--Debug.console(sFormattedItemCost);
 				--Debug.console(sCostUnits);
 				local aCurrencies = CurrencyManager.getCurrencies();	-- Get list of currencies --
 				
+	
 				-- If the string is a number and our units are not nil --
 				if StringManager.isNumberString(sFormattedItemCost) and sCostUnits then
 					for k, sCurrency in pairs(aCurrencies) do	-- For each currency --
